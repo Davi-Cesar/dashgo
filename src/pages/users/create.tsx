@@ -41,6 +41,7 @@ export default function CreateUser() {
   const {
     register,
     handleSubmit,
+    formState,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(createUserFormSchema),
@@ -113,7 +114,11 @@ export default function CreateUser() {
                 </Button>
               </Link>
 
-              <Button type="submit" colorScheme="pink">
+              <Button
+                type="submit"
+                colorScheme="pink"
+                isLoading={formState.isSubmitting}
+              >
                 Salvar
               </Button>
             </HStack>
